@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>산지 기상 브리핑 · 2026-09-01</title>
+<style>
+  :root{
+    --bg:#fff8e8;
+    --panel:#ffffff;
+    --panel-line:#eadfc4;
+    --paper:#22303f;
+    --ink:#3d4a56;
+    --ink-dim:#8a8267;
+    --amber:#f3a712;
+    --red:#ef476f;
+    --green:#12b886;
+    --blue:#1f8fc7;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, rgba(34,48,63,0.03) 0px, rgba(34,48,63,0.03) 1px, transparent 1px, transparent 24px),
+      var(--bg);
+    color:var(--ink);
+    font-family:-apple-system, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    padding:0 0 40px 0;
+  }
+  .mono{ font-family:"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }
+
+  header{
+    padding:28px 20px 20px;
+    border-bottom:1px solid var(--panel-line);
+    position:relative;
+  }
+  .ticker{
+    font-size:11px;
+    letter-spacing:2px;
+    color:var(--amber);
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  h1{
+    font-size:26px;
+    margin:0 0 6px;
+    color:var(--paper);
+    font-weight:800;
+    letter-spacing:-0.5px;
+  }
+  .subline{
+    font-size:13px;
+    color:var(--ink-dim);
+  }
+  .subline b{ color:var(--ink); font-weight:600; }
+
+  .banner{
+    margin:18px 20px 0;
+    background:linear-gradient(90deg, rgba(209,85,63,0.15), rgba(224,163,57,0.08));
+    border:1px solid rgba(224,163,57,0.35);
+    border-left:4px solid var(--amber);
+    padding:14px 16px;
+    border-radius:4px;
+    font-size:13.5px;
+    line-height:1.6;
+  }
+  .banner .tag{
+    display:inline-block;
+    background:var(--red);
+    color:#fff;
+    font-size:10.5px;
+    font-weight:700;
+    padding:2px 7px;
+    border-radius:3px;
+    margin-right:8px;
+    letter-spacing:0.5px;
+  }
+
+  .section-label{
+    margin:30px 20px 12px;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .section-label .n{
+    color:var(--amber);
+    font-size:12px;
+    letter-spacing:1px;
+  }
+  .section-label .t{
+    color:var(--paper);
+    font-size:15px;
+    font-weight:700;
+  }
+  .section-label .line{
+    flex:1;
+    height:1px;
+    background:var(--panel-line);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:10px;
+    padding:0 20px;
+  }
+  @media (min-width:640px){
+    .grid{ grid-template-columns:repeat(3, 1fr); }
+  }
+
+  .card{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:6px;
+    padding:14px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(34,48,63,0.06);
+  }
+  .card.warn{ border-color:rgba(239,71,111,0.45); }
+  .card.caution{ border-color:rgba(243,167,18,0.5); }
+  .card::before{
+    content:'';
+    position:absolute; left:0; top:0; bottom:0;
+    width:3px;
+  }
+  .card.warn::before{ background:var(--red); }
+  .card.caution::before{ background:var(--amber); }
+  .card.normal::before{ background:var(--green); }
+
+  .card-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .card .icon{
+    font-size:26px;
+    line-height:1;
+    flex-shrink:0;
+    filter:drop-shadow(0 1px 1px rgba(34,48,63,0.12));
+  }
+  .card .region{
+    font-size:14.5px;
+    font-weight:700;
+    color:var(--paper);
+    margin-bottom:2px;
+  }
+  .card .crops{
+    font-size:13px;
+    font-weight:500;
+    color:var(--ink-dim);
+    margin-bottom:10px;
+  }
+  .card .temp{
+    font-size:20px;
+    font-weight:700;
+    color:var(--paper);
+    margin-bottom:2px;
+  }
+  .card .temp span{ font-size:12px; color:var(--ink-dim); font-weight:400; }
+  .badges{ display:flex; flex-wrap:wrap; gap:5px; margin:8px 0; }
+  .badge{
+    font-size:10px;
+    padding:2px 7px;
+    border-radius:10px;
+    font-weight:600;
+  }
+  .badge.red{ background:rgba(239,71,111,0.15); color:#c22456; }
+  .badge.amber{ background:rgba(243,167,18,0.18); color:#a86c00; }
+  .badge.blue{ background:rgba(31,143,199,0.15); color:#106a94; }
+  .badge.green{ background:rgba(18,184,134,0.15); color:#0b8462; }
+  .card .note{
+    font-size:11.5px;
+    color:var(--ink);
+    line-height:1.5;
+    margin-top:6px;
+  }
+
+  table.data{
+    width:calc(100% - 40px);
+    margin:0 20px;
+    border-collapse:collapse;
+    font-size:12.5px;
+  }
+  table.data th{
+    text-align:left;
+    color:var(--ink-dim);
+    font-weight:600;
+    font-size:11px;
+    padding:8px 8px;
+    border-bottom:1px solid var(--panel-line);
+    letter-spacing:0.3px;
+  }
+  table.data td{
+    padding:9px 8px;
+    border-bottom:1px solid rgba(34,48,63,0.06);
+    vertical-align:top;
+  }
+  table.data td.item{ color:var(--paper); font-weight:600; white-space:nowrap; }
+  .arrow{ font-weight:800; }
+  .arrow.up{ color:var(--red); }
+  .arrow.down{ color:var(--green); }
+  .arrow.flat{ color:var(--ink-dim); }
+
+  .footer{
+    margin:26px 20px 0;
+    font-size:10.5px;
+    color:var(--ink-dim);
+    line-height:1.6;
+    border-top:1px solid var(--panel-line);
+    padding-top:14px;
+  }
+
+  .head-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+  }
+  .update-btn{
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:var(--paper);
+    color:#fff;
+    border:none;
+    padding:9px 14px;
+    border-radius:20px;
+    font-size:12.5px;
+    font-weight:700;
+    cursor:pointer;
+    font-family:inherit;
+    box-shadow:0 2px 6px rgba(34,48,63,0.15);
+    transition:opacity 0.15s;
+  }
+  .update-btn:active{ opacity:0.7; }
+  .update-btn:disabled{ opacity:0.55; cursor:default; }
+  .update-btn .ub-icon{ font-size:14px; display:inline-block; }
+  .update-btn.spinning .ub-icon{ animation:spin 0.9s linear infinite; }
+  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+  .update-status{
+    margin-top:10px;
+    font-size:11.5px;
+    color:var(--ink-dim);
+    min-height:14px;
+  }
+  .update-status.error{ color:#c22456; }
+  .update-status.ok{ color:#0b8462; }
+
+  .part-divider{
+    margin:44px 20px 0;
+    padding-top:28px;
+    border-top:2px dashed var(--panel-line);
+  }
+  .part-divider .part-eyebrow{
+    font-size:11px;
+    letter-spacing:2px;
+    color:#c22456;
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .part-divider h2{
+    font-size:26px;
+    color:var(--paper);
+    margin:0 0 6px;
+    font-weight:800;
+    letter-spacing:-0.5px;
+  }
+  .part-divider .part-sub{
+    font-size:13px;
+    color:var(--ink-dim);
+    line-height:1.6;
+  }
+
+  table.risk{
+    width:calc(100% - 40px);
+    margin:16px 20px 0;
+    border-collapse:collapse;
+    font-size:12.5px;
+  }
+  table.risk th{
+    text-align:left;
+    color:var(--ink-dim);
+    font-weight:600;
+    font-size:11px;
+    padding:8px 7px;
+    border-bottom:1px solid var(--panel-line);
+    letter-spacing:0.3px;
+  }
+  table.risk td{
+    padding:10px 7px;
+    border-bottom:1px solid rgba(34,48,63,0.06);
+    vertical-align:top;
+    line-height:1.5;
+  }
+  table.risk td.product{ color:var(--paper); font-weight:600; font-size:12.5px; }
+  table.risk td.company{ color:var(--ink-dim); font-size:11px; margin-top:1px; }
+  table.risk .cat-badge{
+    display:inline-block;
+    font-size:10px;
+    font-weight:600;
+    padding:2px 7px;
+    border-radius:10px;
+    white-space:nowrap;
+  }
+  .cat-food{ background:rgba(243,167,18,0.18); color:#a86c00; }
+  .cat-drug{ background:rgba(239,71,111,0.15); color:#c22456; }
+  .cat-quasi{ background:rgba(31,143,199,0.15); color:#106a94; }
+  .cat-cosmetic{ background:rgba(18,184,134,0.15); color:#0b8462; }
+  .cat-notice{ background:rgba(34,48,63,0.08); color:var(--ink); }
+  table.risk a{ color:var(--blue); text-decoration:none; font-size:11px; }
+  table.risk a:hover{ text-decoration:underline; }
+  table.risk td.link-cell{ text-align:center; }
+
+  .article-link{
+    display:inline-flex;
+    align-items:center;
+    gap:3px;
+    padding:5px 10px;
+    background:#f1e6cd;
+    color:#8a7548 !important;
+    font-size:10.5px;
+    font-weight:600;
+    border-radius:12px;
+    border:1px solid #e3d3a6;
+    text-decoration:none !important;
+    white-space:nowrap;
+  }
+  .article-link:hover{ background:#e9dab8; opacity:1; }
+  .article-link .al-arrow{ font-size:10px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="ticker mono">SOURCING WEATHER DESK · MADE BY FOODTEAM · PART 01 기상 브리핑 / PART 02 회수·판매중단 리스크</div>
+  <div class="head-row">
+    <div>
+      <h1>주요 산지 기상·특보 브리핑</h1>
+      <div class="subline" id="sublineText">2026년 9월 1일(화) 12:00 발표 기준 · 기상청(KMA) 날씨누리 · <b>중부 호우, 남부·제주 폭염 지속</b></div>
+    </div>
+    <button id="updateBtn" class="update-btn" onclick="updateBriefing()">
+      <span class="ub-icon">↻</span><span class="ub-label">업데이트</span>
+    </button>
+  </div>
+  <div id="updateStatus" class="update-status"></div>
+</header>
+
+<div class="banner" id="bannerText">
+  <span class="tag">전국 공통</span>
+  9월 첫날 정체전선이 재활성화하며 중부지방(경기·강원·충청)에 이른바 '2차 장마'성 강한 비. 충남 당진 호우경보·서산 호우주의보·강풍주의보 발효(충남서부 최대 100mm 이상). 반면 남부지방(전남·경북·경남)과 제주는 폭염특보 지속, 체감온도 33℃ 안팎. 오후~저녁 남부·제주 소나기, 서해상·동해중부해상 돌풍·천둥번개 유의.
+</div>
+
+<div class="section-label">
+  <span class="n mono">01</span>
+  <span class="t">산지별 현황</span>
+  <span class="line"></span>
+</div>
+
+<div class="grid">
+
+  <div data-key="haenam" class="card warn">
+    <div class="card-head">
+      <div>
+        <div class="region">해남·진도 (전남)</div>
+        <div class="crops">배추·무·대파</div>
+      </div>
+      <div class="icon" title="폭염경보">☀️</div>
+    </div>
+    <div class="temp">25<span>~</span>33<span>℃</span></div>
+    <div class="badges">
+      <span class="badge red">폭염경보(해남남부)</span>
+      <span class="badge amber">체감 33℃</span>
+    </div>
+    <div class="note">9/1 12:00 기준 폭염경보 지속(해남남부 포함). 남부지방 폭염특보 계속, 오후~저녁 소나기 가능성.</div>
+  </div>
+
+  <div data-key="gangwon" class="card warn">
+    <div class="card-head">
+      <div>
+        <div class="region">강원 고랭지 (정선·평창·태백)</div>
+        <div class="crops">고랭지배추·무</div>
+      </div>
+      <div class="icon" title="비·돌풍">🌧️</div>
+    </div>
+    <div class="temp">18<span>~</span>26<span>℃</span></div>
+    <div class="badges">
+      <span class="badge red">강한 비</span>
+      <span class="badge amber">기온 하락</span>
+    </div>
+    <div class="note">9/1 정체전선 재활성화('2차 장마')로 강원 10~50mm 비 예보, 저녁까지 지속 지역 있음. 폭염특보는 해제, 저온 다습 병해 여부 주시.</div>
+  </div>
+
+  <div data-key="jeonbuk" class="card caution">
+    <div class="card-head">
+      <div>
+        <div class="region">전주·김제·부안 (전북)</div>
+        <div class="crops">쌀·과채류</div>
+      </div>
+      <div class="icon" title="폭염주의보">☀️</div>
+    </div>
+    <div class="temp">24<span>~</span>32<span>℃</span></div>
+    <div class="badges">
+      <span class="badge amber">폭염주의보(부안 등)</span>
+      <span class="badge amber">소나기 가능</span>
+    </div>
+    <div class="note">9/1 기준 부안 등 일부 폭염주의보로 다소 완화. 벼 등숙기 고온 스트레스는 계속 관찰 필요, 오후 소나기 5~40mm.</div>
+  </div>
+
+  <div data-key="gyeongbuk" class="card caution">
+    <div class="card-head">
+      <div>
+        <div class="region">대구·경북 남부 (상주·청도)</div>
+        <div class="crops">사과·감</div>
+      </div>
+      <div class="icon" title="폭염주의보">☀️</div>
+    </div>
+    <div class="temp">24<span>~</span>33<span>℃</span></div>
+    <div class="badges">
+      <span class="badge amber">폭염주의보(청도 등)</span>
+      <span class="badge amber">열대야주의보</span>
+    </div>
+    <div class="note">9/1 기준 경보에서 주의보로 다소 완화(청도·고령·칠곡 등). 착색기 고온 여전, 낙과·품질 편차 지속 점검.</div>
+  </div>
+
+  <div data-key="gyeongnam" class="card warn">
+    <div class="card-head">
+      <div>
+        <div class="region">경남 서부 (진주·창원)</div>
+        <div class="crops">시설채소·단감</div>
+      </div>
+      <div class="icon" title="폭염주의보">☀️</div>
+    </div>
+    <div class="temp">25<span>~</span>33<span>℃</span></div>
+    <div class="badges">
+      <span class="badge amber">폭염주의보</span>
+      <span class="badge amber">열대야주의보</span>
+    </div>
+    <div class="note">경남 전역 폭염주의보, 창원·진주 등 열대야주의보 겹침. 야간 고온 지속으로 시설 내 생육 불균일 우려 여전.</div>
+  </div>
+
+  <div data-key="jeju" class="card caution">
+    <div class="card-head">
+      <div>
+        <div class="region">제주 (감귤·월동채소 예정지)</div>
+        <div class="crops">감귤·당근</div>
+      </div>
+      <div class="icon" title="폭염주의보">☀️</div>
+    </div>
+    <div class="temp">27<span>~</span>32<span>℃</span></div>
+    <div class="badges">
+      <span class="badge amber">폭염주의보</span>
+      <span class="badge amber">열대야주의보</span>
+    </div>
+    <div class="note">제주 전역 폭염·열대야주의보 지속, 체감온도 33℃ 안팎. 내일(9/2) 오후부터 비 예보, 육상 물류는 아직 안정적.</div>
+  </div>
+
+  <div data-key="chungnam_seo" class="card warn">
+    <div class="card-head">
+      <div>
+        <div class="region">충남 서해안 (서산·당진·태안)</div>
+        <div class="crops">마늘·대파·원예</div>
+      </div>
+      <div class="icon" title="호우경보·강풍">🌧️</div>
+    </div>
+    <div class="temp">21<span>~</span>27<span>℃</span></div>
+    <div class="badges">
+      <span class="badge red">당진 호우경보</span>
+      <span class="badge red">서산 호우주의보</span>
+      <span class="badge amber">강풍주의보</span>
+    </div>
+    <div class="note">9/1 정체전선 재활성화로 당진 호우경보·서산 호우주의보·강풍주의보 발효. 충남서부 30~80mm(많은 곳 100mm+) 예보, 침수·저장창고 피해 최우선 점검.</div>
+  </div>
+
+  <div data-key="nonsan" class="card caution">
+    <div class="card-head">
+      <div>
+        <div class="region">논산·부여 (충남)</div>
+        <div class="crops">딸기 육묘·표고</div>
+      </div>
+      <div class="icon" title="비 소식">🌦️</div>
+    </div>
+    <div class="temp">22<span>~</span>29<span>℃</span></div>
+    <div class="badges">
+      <span class="badge amber">충남남부 소나기</span>
+    </div>
+    <div class="note">9/1 정체전선 영향권, 충남남부 5~40mm 소나기 예상. 서산·당진 호우 지역보다는 완화됐으나 배수 관리 필요. 폭염경보는 해제.</div>
+  </div>
+
+  <div data-key="cheongyang" class="card warn">
+    <div class="card-head">
+      <div>
+        <div class="region">청양·영양 (건고추)</div>
+        <div class="crops">건고추·고춧가루</div>
+      </div>
+      <div class="icon" title="폭염주의보·탄저병 위험">🌧️</div>
+    </div>
+    <div class="temp">23<span>~</span>31<span>℃</span></div>
+    <div class="badges">
+      <span class="badge amber">영양 폭염주의보</span>
+      <span class="badge red">탄저병 위험↑</span>
+    </div>
+    <div class="note">9/1 기준 영양 폭염주의보(경보에서 완화). 중부권 강우와 겹치며 고온다습 지속으로 탄저병 위험은 여전히 높음, 수확기 앞두고 확산 여부 주시.</div>
+  </div>
+
+  <div data-key="wando" class="card warn">
+    <div class="card-head">
+      <div>
+        <div class="region">완도·고흥 (전남, 수산)</div>
+        <div class="crops">전복·김·미역 양식</div>
+      </div>
+      <div class="icon" title="폭염경보·고수온 경보">🌊</div>
+    </div>
+    <div class="temp">수온 28<span>℃+</span></div>
+    <div class="badges">
+      <span class="badge red">완도 폭염경보</span>
+      <span class="badge amber">고수온 우려</span>
+    </div>
+    <div class="note">9/1 기준 완도(여서도 제외) 폭염경보 지속. 남부지방 폭염특보 계속되며 양식장 고수온 스트레스 여전, 폐사 여부 지속 확인 필요.</div>
+  </div>
+
+  <div data-key="hongseong" class="card caution">
+    <div class="card-head">
+      <div>
+        <div class="region">홍성 (충남, 축산)</div>
+        <div class="crops">한우·낙농</div>
+      </div>
+      <div class="icon" title="비·기온 하락">🌧️</div>
+    </div>
+    <div class="temp">21<span>~</span>27<span>℃</span></div>
+    <div class="badges">
+      <span class="badge amber">강우 영향권</span>
+      <span class="badge green">폭염 완화</span>
+    </div>
+    <div class="note">9/1 정체전선 영향으로 충남 지역 기온 하락, 폭염 스트레스는 일시 완화. 다만 인근 당진 호우 영향권이라 축사 침수·환기 관리 점검 필요.</div>
+  </div>
+
+  <div data-key="pocheon" class="card caution">
+    <div class="card-head">
+      <div>
+        <div class="region">포천·여주 (경기, 축산)</div>
+        <div class="crops">산란계·계란</div>
+      </div>
+      <div class="icon" title="비">🌧️</div>
+    </div>
+    <div class="temp">19<span>~</span>25<span>℃</span></div>
+    <div class="badges">
+      <span class="badge amber">경기권 강우</span>
+      <span class="badge green">폭염 완화</span>
+    </div>
+    <div class="note">9/1 경기·중부지방 비 소식으로 폭염 스트레스는 완화되는 국면. 다만 그간 누적된 산란율 저하 여파는 당분간 이어질 수 있어 계란 수급은 계속 모니터링.</div>
+  </div>
+
+</div>
+
+<div class="section-label">
+  <span class="n mono">02</span>
+  <span class="t">소싱 · 발주단가 판단 코멘트</span>
+  <span class="line"></span>
+</div>
+
+<table class="data">
+  <tr>
+    <th style="width:20%">품목</th>
+    <th style="width:10%">단가압력</th>
+    <th>코멘트</th>
+  </tr>
+  <tr data-key="haenam">
+    <td class="item">🥬 배추·무 (해남·고랭지)</td>
+    <td><span class="arrow up">▲</span></td>
+    <td>해남 폭염경보 지속, 강원 고랭지는 비로 전환. 산지별 상반된 리스크(폭염 vs 다습) 겹쳐 9월 초 출하 변동성 확대 → 이원화 소싱 검토.</td>
+  </tr>
+  <tr data-key="cheongyang">
+    <td class="item">🌶️ 건고추 (청양·영양)</td>
+    <td><span class="arrow up">▲</span></td>
+    <td>영양 폭염주의보로 완화됐으나 중부권 강우와 겹쳐 고온다습 지속, 탄저병 위험은 여전히 최고 수준. 김장철 앞두고 산지 피해율 확인 후 분할 발주 권장.</td>
+  </tr>
+  <tr data-key="wando">
+    <td class="item">🐚 전복·김·미역 (완도·고흥)</td>
+    <td><span class="arrow up">▲</span></td>
+    <td>완도 폭염경보 지속, 고수온 스트레스 여전히 상존. 폐사 확산 시 단기 출하량 급감 가능 → 대체 산지·냉동재고 확보 우선 검토.</td>
+  </tr>
+  <tr data-key="hongseong">
+    <td class="item">🐄 한우·낙농 (홍성)</td>
+    <td><span class="arrow flat">■</span></td>
+    <td>9/1 강우로 폭염 스트레스는 일시 완화됐으나 인근 당진 호우 영향권이라 축사 침수 여부가 새 변수. 급격한 단가 변동보다는 상황 모니터링 단계.</td>
+  </tr>
+  <tr data-key="pocheon">
+    <td class="item">🥚 계란 (포천·여주)</td>
+    <td><span class="arrow up">▲</span></td>
+    <td>경기권 강우로 폭염 스트레스는 완화 국면이나, 그간 누적된 산란율 저하 여파는 지속. 추석 성수품이라 여전히 선제 물량 확보 우선순위 높음.</td>
+  </tr>
+  <tr data-key="gyeongbuk">
+    <td class="item">🍎 사과·감 (경북)</td>
+    <td><span class="arrow flat">■</span></td>
+    <td>경북 폭염이 경보에서 주의보로 완화. 착색기 품질 변수는 남아있으나 물량 영향은 제한적 → 등급별 분리 발주 기조 유지.</td>
+  </tr>
+  <tr data-key="gyeongnam">
+    <td class="item">🥒 시설채소 (경남·전남)</td>
+    <td><span class="arrow up">▲</span></td>
+    <td>경남 폭염주의보·열대야주의보 지속. 야간 고온으로 생육 불균일, 규격 이탈률 증가 여전 → 단가보다 등급 스펙 협상에 유의.</td>
+  </tr>
+  <tr data-key="jeju">
+    <td class="item">🍊 감귤·제주산 (월동채소 예정)</td>
+    <td><span class="arrow down">▼</span></td>
+    <td>풍랑특보는 해제, 폭염·열대야주의보만 지속. 육상·해상 모두 비교적 안정적이라 가격 판단엔 영향 미미, 평시 발주 유지.</td>
+  </tr>
+  <tr data-key="jeonbuk">
+    <td class="item">🌾 쌀 (전북)</td>
+    <td><span class="arrow flat">■</span></td>
+    <td>폭염이 경보에서 일부 주의보로 완화, 오후 소나기 예보. 등숙기 품질은 여전히 중장기 변수, 신곡 가격 반영은 아직 시점 아님.</td>
+  </tr>
+</table>
+
+<div class="footer">
+  ※ 본 브리핑은 <span id="footerDate">2026-09-01 12:00</span> 기상청 발표자료 및 당일 언론 보도를 기반으로 재구성한 참고용 자료입니다. 실시간 특보 변경 여부는 기상청 날씨누리(weather.go.kr)에서 재확인 권장. 가격 방향성(▲▼■)은 기상 요인만을 근거로 한 정성적 판단이며 실제 산지 시세와 다를 수 있습니다.
+</div>
+
+<div class="part-divider">
+  <div class="part-eyebrow mono"></div>
+  <div class="head-row">
+    <div>
+      <h2>식약처 판매중단·회수 리스크 브리핑</h2>
+      <div class="part-sub" id="riskSub">온라인 판매 채널 재고 점검용 · 최근 발표된 식품의약품안전처 식품 회수·판매중단 조치 8건. 취급 품목·유사 브랜드 보유 여부를 먼저 확인하세요.</div>
+    </div>
+    <button id="riskUpdateBtn" class="update-btn" onclick="updateRiskBriefing()">
+      <span class="ub-icon">↻</span><span class="ub-label">업데이트</span>
+    </button>
+  </div>
+  <div id="riskUpdateStatus" class="update-status"></div>
+</div>
+
+<table class="risk">
+  <tr>
+    <th style="width:24%">품목 / 업체</th>
+    <th style="width:13%">사유 유형</th>
+    <th>조치 사유 및 내용</th>
+    <th style="width:11%">조치일</th>
+    <th style="width:13%">바로가기</th>
+  </tr>
+  <tbody id="riskTbody">
+  <tr>
+    <td class="product">마야항아리프리미엄굴소스<div class="company">마야에프앤비</div></td>
+    <td><span class="cat-badge cat-food">알레르기 표시</span></td>
+    <td>알레르기 유발물질(조개류·굴) 미표시로 판매중단·회수. 420g, 약 1만1582개 규모.</td>
+    <td>2026-07-31</td>
+    <td class="link-cell"><a class="article-link" href="https://www.etoday.co.kr/news/view/2609792" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
+  </tr>
+  <tr>
+    <td class="product">덕암대란(식용란)<div class="company">덕암농장</div></td>
+    <td><span class="cat-badge cat-drug">미생물 검출</span></td>
+    <td>식중독균 살모넬라 엔테리티디스 검출로 판매중단·회수. 약 2만7270개 규모.</td>
+    <td>소비기한 2026-08-20</td>
+    <td class="link-cell"><a class="article-link" href="https://consumer.go.kr/user/ftc/consumer/recallnews/801/selectRecallNewsView.do?column=&page=1&recallNewsIdx=674&row=10&search=" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
+  </tr>
+  <tr>
+    <td class="product">생크림랑떡(메론맛)<div class="company">떡다움</div></td>
+    <td><span class="cat-badge cat-drug">미생물 검출</span></td>
+    <td>세균수·대장균 기준 규격 부적합으로 판매중단·회수 조치.</td>
+    <td>소비기한 2026-08-06</td>
+    <td class="link-cell"><a class="article-link" href="https://www.foodtoday.or.kr/news/article.html?no=199304" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
+  </tr>
+  <tr>
+    <td class="product">다진마늘<div class="company">엔젤식품</div></td>
+    <td><span class="cat-badge cat-drug">미생물 검출</span></td>
+    <td>세균수 기준 규격 부적합으로 판매중단·회수 조치. 180g 포장단위.</td>
+    <td>소비기한 2026-08-03</td>
+    <td class="link-cell"><a class="article-link" href="https://www.esocialtimes.com/news/articleView.html?idxno=41122" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
+  </tr>
+  <tr>
+    <td class="product">토마토즙(과·채주스)<div class="company">한아름농장</div></td>
+    <td><span class="cat-badge cat-quasi">중금속 초과</span></td>
+    <td>중금속 '납' 기준치 초과 검출로 판매중단·회수 조치.</td>
+    <td>소비기한 2026-08-09</td>
+    <td class="link-cell"><a class="article-link" href="https://foodnews.news/news/article.html?no=1413295" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
+  </tr>
+  <tr>
+    <td class="product">참조아라유기농블루베리즙<div class="company">포항블루베리농원</div></td>
+    <td><span class="cat-badge cat-quasi">중금속 초과</span></td>
+    <td>과·채주스 제품에서 '납' 기준 초과 검출, 판매중단·회수.</td>
+    <td>2026-07경</td>
+    <td class="link-cell"><a class="article-link" href="http://www.knongnews.com/news/articleView.html?idxno=24695" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
+  </tr>
+  <tr>
+    <td class="product">신안새우젓 외 젓갈 8종<div class="company">대일종합식품</div></td>
+    <td><span class="cat-badge cat-notice">무신고 소분</span></td>
+    <td>식품소분업 미신고 상태로 소분·판매한 사실이 확인돼 젓갈류 8개 제품 전체 판매중단·회수.</td>
+    <td>2026-05-29</td>
+    <td class="link-cell"><a class="article-link" href="https://www.hankyung.com/article/202605296469P" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
+  </tr>
+  <tr>
+    <td class="product">곱창돌김<div class="company">제이와이에프엔비</div></td>
+    <td><span class="cat-badge cat-drug">첨가물 기준 초과</span></td>
+    <td>미허용 감미료(사카린나트륨) 검출로 판매중단·회수 조치.</td>
+    <td>확인필요</td>
+    <td class="link-cell"><a class="article-link" href="https://www.foodtoday.or.kr/news/article.html?no=202130" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="footer" style="margin-top:16px;">
+  ※ 위 리스트는 언론 보도 및 식약처 발표 기준으로 재구성했으며, 실제 회수 대상 제조번호·소비기한 등 세부사항은 반드시 식품안전나라(foodsafetykorea.go.kr) 또는 의약품안전나라에서 원본 공고로 재확인 후 채널 내 재고를 조치하시기 바랍니다.
+</div>
+
+<script>
+const REGION_LABELS = {
+  haenam: "해남·진도 (전남) — 배추·무·대파",
+  gangwon: "강원 고랭지(정선·평창·태백) — 고랭지배추·무",
+  jeonbuk: "전주·김제·부안(전북) — 쌀·과채류",
+  gyeongbuk: "대구·경북 남부(상주·청도) — 사과·감",
+  gyeongnam: "경남 서부(진주·창원) — 시설채소·단감",
+  jeju: "제주 — 감귤·당근(월동채소 예정지)",
+  chungnam_seo: "충남 서해안(서산·당진·태안) — 마늘·대파·원예",
+  nonsan: "논산·부여(충남) — 딸기 육묘·표고",
+  cheongyang: "청양·영양 — 건고추·고춧가루",
+  wando: "완도·고흥(전남, 수산) — 전복·김·미역 양식",
+  hongseong: "홍성(충남, 축산) — 한우·낙농",
+  pocheon: "포천·여주(경기, 축산) — 산란계·계란"
+};
+
+function formatDateKR(d){
+  const days = ["일","월","화","수","목","금","토"];
+  return `${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일(${days[d.getDay()]})`;
+}
+
+// AI 응답이 글자 수 제한 등으로 중간에 잘려도(불완전한 JSON) 최대한 살려서 파싱한다.
+function repairAndParseJSON(rawText){
+  let text = rawText.replace(/```json|```/g, "").trim();
+  const start = text.indexOf('{');
+  if(start === -1) throw new Error("JSON 시작 지점을 찾지 못했습니다.");
+  text = text.slice(start);
+
+  // 1차: 그대로 파싱 시도
+  try{ return JSON.parse(text); } catch(e){ /* fall through */ }
+
+  // 2차: 문자열/괄호 균형을 맞춰 잘린 JSON을 복구
+  let inString = false;
+  let escapeNext = false;
+  const stack = [];
+  let lastSafeIndex = -1; // 쉼표 또는 여는 괄호 직후처럼 잘라도 안전한 위치
+
+  for(let i = 0; i < text.length; i++){
+    const ch = text[i];
+    if(escapeNext){ escapeNext = false; continue; }
+    if(ch === '\\' && inString){ escapeNext = true; continue; }
+    if(ch === '"'){ inString = !inString; continue; }
+    if(inString) continue;
+
+    if(ch === '{' || ch === '['){ stack.push(ch); }
+    else if(ch === '}' || ch === ']'){ stack.pop(); }
+    else if(ch === ',' && stack.length > 0){ lastSafeIndex = i; }
+  }
+
+  let repaired = text;
+  if(inString){
+    // 문자열이 안 닫힌 채로 끝났다면, 마지막 안전한 지점까지만 사용
+    repaired = lastSafeIndex > -1 ? text.slice(0, lastSafeIndex) : text;
+  } else {
+    // 문자열은 닫혔지만 값이 중간에 끊긴 경우, 트레일링 콤마/불완전 토큰 제거
+    repaired = text.replace(/,\s*$/, '');
+  }
+
+  // 다시 스택을 계산해 남은 괄호를 순서대로 닫아준다
+  inString = false; escapeNext = false;
+  const closeStack = [];
+  for(let i = 0; i < repaired.length; i++){
+    const ch = repaired[i];
+    if(escapeNext){ escapeNext = false; continue; }
+    if(ch === '\\' && inString){ escapeNext = true; continue; }
+    if(ch === '"'){ inString = !inString; continue; }
+    if(inString) continue;
+    if(ch === '{' || ch === '['){ closeStack.push(ch); }
+    else if(ch === '}' || ch === ']'){ closeStack.pop(); }
+  }
+  // 혹시 마지막 값이 콤마 없이 끊긴 경우도 대비해 트레일링 콤마 제거
+  repaired = repaired.replace(/,\s*$/, '');
+  while(closeStack.length > 0){
+    const open = closeStack.pop();
+    repaired += (open === '{') ? '}' : ']';
+  }
+
+  try{
+    return JSON.parse(repaired);
+  } catch(e){
+    throw new Error("응답이 잘려서 자동 복구도 실패했습니다. 다시 시도해주세요.");
+  }
+}
+
+async function updateBriefing(){
+  const btn = document.getElementById('updateBtn');
+  const status = document.getElementById('updateStatus');
+  btn.disabled = true;
+  btn.classList.add('spinning');
+  status.className = 'update-status';
+  status.textContent = '오늘 날짜 기준 산지 기상·특보 정보를 검색 중입니다... (약 30초~1분 소요)';
+
+  const now = new Date();
+  const dateKR = formatDateKR(now);
+
+  const regionList = Object.entries(REGION_LABELS)
+    .map(([k, v]) => `- ${k}: ${v}`).join('\n');
+
+  const prompt =
+`오늘은 ${dateKR}입니다. web_search로 대한민국 기상청 특보 현황과 아래 12개 산지의 오늘 기준 최신 날씨/기상특보(폭염, 열대야, 호우, 태풍, 풍랑, 고수온, 가축 폭염피해 등)를 확인하세요.
+
+대상 산지:
+${regionList}
+
+확인 후 아래 JSON 형식으로만 답하세요. 다른 설명, 인사말, 마크다운 코드펜스(\`\`\`) 없이 순수 JSON 텍스트만 출력하세요. 각 note는 40자 내외로 간결하게 작성하세요.
+
+{
+  "date_label": "${dateKR} 기준",
+  "banner": "전국 공통 상황 2~3문장 요약",
+  "regions": {
+    "haenam": {"temp":"최저~최고℃ 형식 문자열","badges":["배지1","배지2"],"note":"소싱 관점 코멘트"},
+    "gangwon": {...},
+    "jeonbuk": {...},
+    "gyeongbuk": {...},
+    "gyeongnam": {...},
+    "jeju": {...},
+    "chungnam_seo": {...},
+    "nonsan": {...},
+    "cheongyang": {...},
+    "wando": {...},
+    "hongseong": {...},
+    "pocheon": {...}
+  },
+  "sourcing": {
+    "haenam": {"arrow":"up|down|flat","comment":"발주단가 코멘트 60자 내외"},
+    "cheongyang": {...},
+    "wando": {...},
+    "hongseong": {...},
+    "pocheon": {...},
+    "gyeongbuk": {...},
+    "gyeongnam": {...},
+    "jeju": {...},
+    "jeonbuk": {...}
+  }
+}`;
+
+  try{
+    const response = await fetch("/.netlify/functions/anthropic-proxy", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 4096,
+        messages: [{ role: "user", content: prompt }],
+        tools: [{ type: "web_search_20250305", name: "web_search" }]
+      })
+    });
+
+    if(!response.ok){
+      throw new Error(`API 오류 (${response.status})`);
+    }
+
+    const data = await response.json();
+    const textBlocks = (data.content || [])
+      .filter(b => b.type === "text")
+      .map(b => b.text)
+      .join("\n");
+
+    if(!textBlocks.trim()){
+      throw new Error("응답에서 텍스트를 찾지 못했습니다.");
+    }
+
+    const wasTruncated = data.stop_reason === 'max_tokens';
+    const parsed = repairAndParseJSON(textBlocks);
+
+    applyUpdate(parsed, now);
+    status.className = 'update-status ok';
+    status.textContent = wasTruncated
+      ? `업데이트 완료(일부 항목은 응답이 길어 누락됐을 수 있어요) · ${now.toLocaleTimeString('ko-KR')} 기준`
+      : `업데이트 완료 · ${now.toLocaleTimeString('ko-KR')} 기준`;
+
+  } catch(err){
+    console.error(err);
+    status.className = 'update-status error';
+    status.textContent = `업데이트 실패: ${err.message}. 잠시 후 다시 시도해주세요.`;
+  } finally {
+    btn.disabled = false;
+    btn.classList.remove('spinning');
+  }
+}
+
+function applyUpdate(parsed, now){
+  if(parsed.date_label){
+    const sub = document.getElementById('sublineText');
+    sub.innerHTML = `${parsed.date_label} 업데이트 · 기상청(KMA) 날씨누리 기반 · <b>Claude 웹검색 갱신</b>`;
+  }
+  if(parsed.banner){
+    const banner = document.getElementById('bannerText');
+    banner.innerHTML = `<span class="tag">전국 공통</span> ${parsed.banner}`;
+  }
+
+  const regions = parsed.regions || {};
+  document.querySelectorAll('.grid .card[data-key]').forEach(card => {
+    try{
+      const key = card.getAttribute('data-key');
+      const r = regions[key];
+      if(!r) return;
+      const tempEl = card.querySelector('.temp');
+      const badgesEl = card.querySelector('.badges');
+      const noteEl = card.querySelector('.note');
+      if(tempEl && r.temp) tempEl.textContent = r.temp;
+      if(badgesEl && Array.isArray(r.badges)){
+        badgesEl.innerHTML = r.badges.map(b => `<span class="badge amber">${b}</span>`).join('');
+      }
+      if(noteEl && r.note) noteEl.textContent = r.note;
+    } catch(e){ console.warn('카드 갱신 중 오류(건너뜀):', e); }
+  });
+
+  const sourcing = parsed.sourcing || {};
+  document.querySelectorAll('table.data tr[data-key]').forEach(tr => {
+    try{
+      const key = tr.getAttribute('data-key');
+      const s = sourcing[key];
+      if(!s) return;
+      const arrowEl = tr.querySelector('.arrow');
+      const commentEl = tr.children[2];
+      if(arrowEl && s.arrow){
+        const map = { up: ['up','▲'], down: ['down','▼'], flat: ['flat','■'] };
+        const [cls, symbol] = map[s.arrow] || map.flat;
+        arrowEl.className = `arrow ${cls}`;
+        arrowEl.textContent = symbol;
+      }
+      if(commentEl && s.comment) commentEl.textContent = s.comment;
+    } catch(e){ console.warn('표 행 갱신 중 오류(건너뜀):', e); }
+  });
+
+  const footerDate = document.getElementById('footerDate');
+  if(footerDate){
+    footerDate.textContent = now.toLocaleString('ko-KR', { year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
+  }
+}
+
+const CAT_CLASS_MAP = {
+  "알레르기": "cat-food",
+  "미생물": "cat-drug",
+  "중금속": "cat-quasi",
+  "이물": "cat-quasi",
+  "무신고": "cat-notice",
+  "기타": "cat-notice"
+};
+
+function pickCatClass(label){
+  const found = Object.keys(CAT_CLASS_MAP).find(k => (label || "").includes(k));
+  return CAT_CLASS_MAP[found] || "cat-notice";
+}
+
+function formatDateISO(d){
+  const pad = n => String(n).padStart(2,'0');
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+}
+
+async function updateRiskBriefing(){
+  const btn = document.getElementById('riskUpdateBtn');
+  const status = document.getElementById('riskUpdateStatus');
+  btn.disabled = true;
+  btn.classList.add('spinning');
+  status.className = 'update-status';
+  status.textContent = '클릭한 날짜 기준 최근 30일 식약처 식품 회수·판매중단 자료를 검색 중입니다... (약 30초~1분 소요)';
+
+  const now = new Date();
+  const past = new Date(now);
+  past.setDate(past.getDate() - 30);
+  const todayLabel = formatDateKR(now);
+  const rangeStart = formatDateISO(past);
+  const rangeEnd = formatDateISO(now);
+
+  const prompt =
+`오늘은 ${todayLabel}(${rangeEnd})입니다. web_search로 대한민국 식품의약품안전처(식약처)가 최근 30일간(${rangeStart} ~ ${rangeEnd}) 발표한 "식품" 판매중단·회수 조치 사례를 조사하세요. 식품안전나라(foodsafetykorea.go.kr) 공지, 식약처 보도자료, 관련 언론 보도를 기준으로 하세요.
+
+조건:
+- 반드시 식품(가공식품, 농수축산물, 건강기능식품 포함) 관련 회수·판매중단만 포함. 의약품·의약외품·화장품·의료기기는 제외.
+- 최대 10건, 최소 5건을 찾아 최신순으로 정렬.
+- 온라인 쇼핑몰에서 흔히 취급될 수 있는 품목 위주로 선정.
+
+각 사례를 아래 JSON 형식으로만 답하세요. 다른 설명, 인사말, 마크다운 코드펜스(\`\`\`) 없이 순수 JSON 텍스트만 출력하세요.
+
+{
+  "date_label": "${todayLabel} 기준 최근 30일(${rangeStart}~${rangeEnd})",
+  "items": [
+    {
+      "product": "제품명",
+      "company": "업체명",
+      "cat_label": "사유 유형(예: 알레르기 표시, 미생물 검출, 중금속 초과, 이물 혼입, 무신고 소분 등 8자 이내)",
+      "reason": "조치 사유 및 내용 (50자 내외)",
+      "date": "조치일 또는 소비기한 (YYYY-MM-DD 형식, 모르면 '확인필요')",
+      "source_name": "출처 매체명",
+      "source_url": "출처 URL"
+    }
+  ]
+}`;
+
+  try{
+    const response = await fetch("/.netlify/functions/anthropic-proxy", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 4096,
+        messages: [{ role: "user", content: prompt }],
+        tools: [{ type: "web_search_20250305", name: "web_search" }]
+      })
+    });
+
+    if(!response.ok){
+      throw new Error(`API 오류 (${response.status})`);
+    }
+
+    const data = await response.json();
+    const textBlocks = (data.content || [])
+      .filter(b => b.type === "text")
+      .map(b => b.text)
+      .join("\n");
+
+    if(!textBlocks.trim()){
+      throw new Error("응답에서 텍스트를 찾지 못했습니다.");
+    }
+
+    const wasTruncated = data.stop_reason === 'max_tokens';
+    const parsed = repairAndParseJSON(textBlocks);
+
+    applyRiskUpdate(parsed);
+    status.className = 'update-status ok';
+    status.textContent = wasTruncated
+      ? `업데이트 완료(일부 항목은 응답이 길어 누락됐을 수 있어요) · ${now.toLocaleTimeString('ko-KR')} 기준`
+      : `업데이트 완료 · ${now.toLocaleTimeString('ko-KR')} 기준`;
+
+  } catch(err){
+    console.error(err);
+    status.className = 'update-status error';
+    status.textContent = `업데이트 실패: ${err.message}. 잠시 후 다시 시도해주세요.`;
+  } finally {
+    btn.disabled = false;
+    btn.classList.remove('spinning');
+  }
+}
+
+function applyRiskUpdate(parsed){
+  const rawItems = Array.isArray(parsed.items) ? parsed.items : [];
+  // 응답이 잘려 비어버린 마지막 항목(제품명 없음)은 제외
+  const items = rawItems.filter(item => item && item.product);
+  if(items.length === 0) return;
+
+  const sub = document.getElementById('riskSub');
+  if(sub){
+    sub.textContent = `온라인 판매 채널 재고 점검용 · ${parsed.date_label || ''} 식품의약품안전처 식품 회수·판매중단 조치 ${items.length}건. 취급 품목·유사 브랜드 보유 여부를 먼저 확인하세요.`;
+  }
+
+  const tbody = document.getElementById('riskTbody');
+  if(!tbody) return;
+
+  const rowsHtml = items.map(item => {
+    try{
+      const catClass = pickCatClass(item.cat_label);
+      const linkHtml = item.source_url
+        ? `<a class="article-link" href="${item.source_url}" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a>`
+        : '';
+      return `<tr>
+        <td class="product">${item.product || ''}<div class="company">${item.company || ''}</div></td>
+        <td><span class="cat-badge ${catClass}">${item.cat_label || '기타'}</span></td>
+        <td>${item.reason || ''}</td>
+        <td>${item.date || ''}</td>
+        <td class="link-cell">${linkHtml}</td>
+      </tr>`;
+    } catch(e){
+      console.warn('리스크 항목 렌더링 중 오류(건너뜀):', e);
+      return '';
+    }
+  }).join('');
+
+  tbody.innerHTML = rowsHtml;
+}
+</script>
+
+
+</body>
+</html>
