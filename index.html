@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>산지 기상 브리핑 · 2026-09-01</title>
+<title>산지 기상 브리핑 · 2026-09-13</title>
 <style>
   :root{
     --bg:#fff8e8;
@@ -340,7 +340,7 @@
   <div class="head-row">
     <div>
       <h1>주요 산지 기상·특보 브리핑</h1>
-      <div class="subline" id="sublineText">2026년 9월 1일(화) 12:00 발표 기준 · 기상청(KMA) 날씨누리 · <b>중부 호우, 남부·제주 폭염 지속</b></div>
+      <div class="subline" id="sublineText">2026년 9월 13일(일) 05:00 발표 기준 · 기상청(KMA) 날씨누리 · <b>완연한 가을 전환, 일교차 10~15℃</b></div>
     </div>
     <button id="updateBtn" class="update-btn" onclick="updateBriefing()">
       <span class="ub-icon">↻</span><span class="ub-label">업데이트</span>
@@ -351,7 +351,7 @@
 
 <div class="banner" id="bannerText">
   <span class="tag">전국 공통</span>
-  9월 첫날 정체전선이 재활성화하며 중부지방(경기·강원·충청)에 이른바 '2차 장마'성 강한 비. 충남 당진 호우경보·서산 호우주의보·강풍주의보 발효(충남서부 최대 100mm 이상). 반면 남부지방(전남·경북·경남)과 제주는 폭염특보 지속, 체감온도 33℃ 안팎. 오후~저녁 남부·제주 소나기, 서해상·동해중부해상 돌풍·천둥번개 유의.
+  추석을 앞두고 폭염특보 없이 완연한 가을 날씨로 전환. 9/13 낮 최고 23~31℃, 아침 최저 12~21℃로 일교차가 10~15℃까지 크게 벌어짐. 충남권남부·충북·전북동부·전남내륙·경북내륙·경남서부내륙은 아침 안개 주의. 수도권·강원 새벽~오전 약한 빗방울, 오후~밤 제주 산지 5~10mm 비.
 </div>
 
 <div class="section-label">
@@ -362,196 +362,195 @@
 
 <div class="grid">
 
-  <div data-key="haenam" class="card warn">
+  <div data-key="haenam" class="card normal">
     <div class="card-head">
       <div>
         <div class="region">해남·진도 (전남)</div>
         <div class="crops">배추·무·대파</div>
       </div>
-      <div class="icon" title="폭염경보">☀️</div>
+      <div class="icon" title="맑음·안개">🌫️</div>
     </div>
-    <div class="temp">25<span>~</span>33<span>℃</span></div>
+    <div class="temp">17<span>~</span>27<span>℃</span></div>
     <div class="badges">
-      <span class="badge red">폭염경보(해남남부)</span>
-      <span class="badge amber">체감 33℃</span>
+      <span class="badge blue">전남내륙 안개</span>
+      <span class="badge green">폭염 해제</span>
     </div>
-    <div class="note">9/1 12:00 기준 폭염경보 지속(해남남부 포함). 남부지방 폭염특보 계속, 오후~저녁 소나기 가능성.</div>
+    <div class="note">폭염특보 완전 해제, 선선한 가을 날씨로 가을배추·무 파종 적기 진입. 아침 안개로 인한 습해 여부만 가볍게 점검.</div>
   </div>
 
-  <div data-key="gangwon" class="card warn">
+  <div data-key="gangwon" class="card normal">
     <div class="card-head">
       <div>
         <div class="region">강원 고랭지 (정선·평창·태백)</div>
         <div class="crops">고랭지배추·무</div>
       </div>
-      <div class="icon" title="비·돌풍">🌧️</div>
+      <div class="icon" title="선선함">⛅</div>
     </div>
-    <div class="temp">18<span>~</span>26<span>℃</span></div>
+    <div class="temp">12<span>~</span>23<span>℃</span></div>
     <div class="badges">
-      <span class="badge red">강한 비</span>
-      <span class="badge amber">기온 하락</span>
+      <span class="badge green">선선한 날씨</span>
+      <span class="badge blue">새벽 약한 비</span>
     </div>
-    <div class="note">9/1 정체전선 재활성화('2차 장마')로 강원 10~50mm 비 예보, 저녁까지 지속 지역 있음. 폭염특보는 해제, 저온 다습 병해 여부 주시.</div>
+    <div class="note">고랭지 배추 수확 성수기, 기온 하락으로 결구 품질 양호. 강원 중·북부 새벽~오전 0.1mm 미만 약한 비, 출하량 변동은 크지 않을 전망.</div>
   </div>
 
-  <div data-key="jeonbuk" class="card caution">
+  <div data-key="jeonbuk" class="card normal">
     <div class="card-head">
       <div>
         <div class="region">전주·김제·부안 (전북)</div>
         <div class="crops">쌀·과채류</div>
       </div>
-      <div class="icon" title="폭염주의보">☀️</div>
+      <div class="icon" title="안개·맑음">🌫️</div>
     </div>
-    <div class="temp">24<span>~</span>32<span>℃</span></div>
+    <div class="temp">15<span>~</span>28<span>℃</span></div>
     <div class="badges">
-      <span class="badge amber">폭염주의보(부안 등)</span>
-      <span class="badge amber">소나기 가능</span>
+      <span class="badge blue">전북동부 안개</span>
+      <span class="badge green">일교차 확대</span>
     </div>
-    <div class="note">9/1 기준 부안 등 일부 폭염주의보로 다소 완화. 벼 등숙기 고온 스트레스는 계속 관찰 필요, 오후 소나기 5~40mm.</div>
+    <div class="note">폭염 해제, 벼 수확기 앞두고 일교차 확대로 등숙·미질에는 오히려 긍정적. 아침 안개 지역 교통·수확작업 시간대만 유의.</div>
   </div>
 
-  <div data-key="gyeongbuk" class="card caution">
+  <div data-key="gyeongbuk" class="card normal">
     <div class="card-head">
       <div>
         <div class="region">대구·경북 남부 (상주·청도)</div>
         <div class="crops">사과·감</div>
       </div>
-      <div class="icon" title="폭염주의보">☀️</div>
+      <div class="icon" title="일교차 확대">🍎</div>
     </div>
-    <div class="temp">24<span>~</span>33<span>℃</span></div>
+    <div class="temp">14<span>~</span>29<span>℃</span></div>
     <div class="badges">
-      <span class="badge amber">폭염주의보(청도 등)</span>
-      <span class="badge amber">열대야주의보</span>
+      <span class="badge green">착색 호조건</span>
+      <span class="badge blue">경북내륙 안개</span>
     </div>
-    <div class="note">9/1 기준 경보에서 주의보로 다소 완화(청도·고령·칠곡 등). 착색기 고온 여전, 낙과·품질 편차 지속 점검.</div>
+    <div class="note">폭염특보 해제되고 일교차 10~15℃로 확대되며 사과 착색·당도에는 오히려 우호적 조건. 추석 성수품 수요 증가 시기, 조생종 출하 품질 양호할 전망.</div>
   </div>
 
-  <div data-key="gyeongnam" class="card warn">
+  <div data-key="gyeongnam" class="card normal">
     <div class="card-head">
       <div>
         <div class="region">경남 서부 (진주·창원)</div>
         <div class="crops">시설채소·단감</div>
       </div>
-      <div class="icon" title="폭염주의보">☀️</div>
+      <div class="icon" title="선선함">⛅</div>
     </div>
-    <div class="temp">25<span>~</span>33<span>℃</span></div>
+    <div class="temp">15<span>~</span>28<span>℃</span></div>
     <div class="badges">
-      <span class="badge amber">폭염주의보</span>
-      <span class="badge amber">열대야주의보</span>
+      <span class="badge green">폭염 해제</span>
+      <span class="badge blue">경남서부내륙 안개</span>
     </div>
-    <div class="note">경남 전역 폭염주의보, 창원·진주 등 열대야주의보 겹침. 야간 고온 지속으로 시설 내 생육 불균일 우려 여전.</div>
+    <div class="note">폭염·열대야 특보 모두 해제, 시설 내 고온장해 리스크 크게 완화. 단감 비대기 접어들며 선선한 날씨로 생육 안정세.</div>
   </div>
 
-  <div data-key="jeju" class="card caution">
+  <div data-key="jeju" class="card normal">
     <div class="card-head">
       <div>
         <div class="region">제주 (감귤·월동채소 예정지)</div>
         <div class="crops">감귤·당근</div>
       </div>
-      <div class="icon" title="폭염주의보">☀️</div>
+      <div class="icon" title="산지 비">🌦️</div>
     </div>
-    <div class="temp">27<span>~</span>32<span>℃</span></div>
+    <div class="temp">20<span>~</span>27<span>℃</span></div>
     <div class="badges">
-      <span class="badge amber">폭염주의보</span>
-      <span class="badge amber">열대야주의보</span>
+      <span class="badge blue">산지 5~10mm 비</span>
+      <span class="badge green">특보 없음</span>
     </div>
-    <div class="note">제주 전역 폭염·열대야주의보 지속, 체감온도 33℃ 안팎. 내일(9/2) 오후부터 비 예보, 육상 물류는 아직 안정적.</div>
+    <div class="note">폭염·풍랑 특보 모두 해제. 오후~밤 제주 산지에만 약한 비 예보, 해상 물류·육상 작업 모두 안정적인 국면.</div>
   </div>
 
-  <div data-key="chungnam_seo" class="card warn">
+  <div data-key="chungnam_seo" class="card normal">
     <div class="card-head">
       <div>
         <div class="region">충남 서해안 (서산·당진·태안)</div>
         <div class="crops">마늘·대파·원예</div>
       </div>
-      <div class="icon" title="호우경보·강풍">🌧️</div>
+      <div class="icon" title="약한 비">🌦️</div>
     </div>
-    <div class="temp">21<span>~</span>27<span>℃</span></div>
+    <div class="temp">17<span>~</span>26<span>℃</span></div>
     <div class="badges">
-      <span class="badge red">당진 호우경보</span>
-      <span class="badge red">서산 호우주의보</span>
-      <span class="badge amber">강풍주의보</span>
+      <span class="badge blue">오전 약한 빗방울</span>
+      <span class="badge green">호우·강풍 해제</span>
     </div>
-    <div class="note">9/1 정체전선 재활성화로 당진 호우경보·서산 호우주의보·강풍주의보 발효. 충남서부 30~80mm(많은 곳 100mm+) 예보, 침수·저장창고 피해 최우선 점검.</div>
+    <div class="note">9/1 호우경보·강풍주의보는 완전 해제. 오늘 오전까지 서북부에 0.1mm 미만 미세한 빗방울만 예보, 저장물류 피해 우려 크게 낮아짐.</div>
   </div>
 
-  <div data-key="nonsan" class="card caution">
+  <div data-key="nonsan" class="card normal">
     <div class="card-head">
       <div>
         <div class="region">논산·부여 (충남)</div>
         <div class="crops">딸기 육묘·표고</div>
       </div>
-      <div class="icon" title="비 소식">🌦️</div>
+      <div class="icon" title="안개·선선함">🌫️</div>
     </div>
-    <div class="temp">22<span>~</span>29<span>℃</span></div>
+    <div class="temp">16<span>~</span>26<span>℃</span></div>
     <div class="badges">
-      <span class="badge amber">충남남부 소나기</span>
+      <span class="badge blue">충남남부 안개</span>
+      <span class="badge green">정식 적기</span>
     </div>
-    <div class="note">9/1 정체전선 영향권, 충남남부 5~40mm 소나기 예상. 서산·당진 호우 지역보다는 완화됐으나 배수 관리 필요. 폭염경보는 해제.</div>
+    <div class="note">폭염경보 해제, 선선한 날씨로 딸기 정식기 접어들며 활착 조건 양호. 아침 안개 지역 작업시간 조정 정도만 유의.</div>
   </div>
 
-  <div data-key="cheongyang" class="card warn">
+  <div data-key="cheongyang" class="card caution">
     <div class="card-head">
       <div>
         <div class="region">청양·영양 (건고추)</div>
         <div class="crops">건고추·고춧가루</div>
       </div>
-      <div class="icon" title="폭염주의보·탄저병 위험">🌧️</div>
+      <div class="icon" title="수확철·안개">🌶️</div>
     </div>
-    <div class="temp">23<span>~</span>31<span>℃</span></div>
+    <div class="temp">13<span>~</span>27<span>℃</span></div>
     <div class="badges">
-      <span class="badge amber">영양 폭염주의보</span>
-      <span class="badge red">탄저병 위험↑</span>
+      <span class="badge green">탄저병 위험 감소</span>
+      <span class="badge blue">경북내륙 안개</span>
     </div>
-    <div class="note">9/1 기준 영양 폭염주의보(경보에서 완화). 중부권 강우와 겹치며 고온다습 지속으로 탄저병 위험은 여전히 높음, 수확기 앞두고 확산 여부 주시.</div>
+    <div class="note">기온 하락·건조해지며 탄저병 확산세는 진정 국면. 본격 수확·건조기 진입, 다만 아침 안개로 인한 건조작업 지연 가능성은 체크 필요.</div>
   </div>
 
-  <div data-key="wando" class="card warn">
+  <div data-key="wando" class="card caution">
     <div class="card-head">
       <div>
         <div class="region">완도·고흥 (전남, 수산)</div>
         <div class="crops">전복·김·미역 양식</div>
       </div>
-      <div class="icon" title="폭염경보·고수온 경보">🌊</div>
+      <div class="icon" title="수온 안정화">🌊</div>
     </div>
-    <div class="temp">수온 28<span>℃+</span></div>
+    <div class="temp">수온 하락세</div>
     <div class="badges">
-      <span class="badge red">완도 폭염경보</span>
-      <span class="badge amber">고수온 우려</span>
+      <span class="badge green">고수온 특보 해제</span>
+      <span class="badge blue">전남내륙 안개</span>
     </div>
-    <div class="note">9/1 기준 완도(여서도 제외) 폭염경보 지속. 남부지방 폭염특보 계속되며 양식장 고수온 스트레스 여전, 폐사 여부 지속 확인 필요.</div>
+    <div class="note">기온 하락과 함께 해수온도 하락세로 전환, 고수온 경보 해제. 여름철 폐사 여파(양식 밀도 저하)는 당분간 출하량에 영향 줄 수 있어 지속 확인 필요.</div>
   </div>
 
-  <div data-key="hongseong" class="card caution">
+  <div data-key="hongseong" class="card normal">
     <div class="card-head">
       <div>
         <div class="region">홍성 (충남, 축산)</div>
         <div class="crops">한우·낙농</div>
       </div>
-      <div class="icon" title="비·기온 하락">🌧️</div>
+      <div class="icon" title="가을 전환">🐄</div>
     </div>
-    <div class="temp">21<span>~</span>27<span>℃</span></div>
+    <div class="temp">15<span>~</span>26<span>℃</span></div>
     <div class="badges">
-      <span class="badge amber">강우 영향권</span>
-      <span class="badge green">폭염 완화</span>
+      <span class="badge green">폭염 스트레스 해소</span>
     </div>
-    <div class="note">9/1 정체전선 영향으로 충남 지역 기온 하락, 폭염 스트레스는 일시 완화. 다만 인근 당진 호우 영향권이라 축사 침수·환기 관리 점검 필요.</div>
+    <div class="note">기온 하락으로 폭염 스트레스 완전히 해소, 사료섭취량·산유량 회복 국면. 여름철 생산성 저하분이 추석 성수기 수급에 영향 남았는지는 계속 모니터링.</div>
   </div>
 
-  <div data-key="pocheon" class="card caution">
+  <div data-key="pocheon" class="card normal">
     <div class="card-head">
       <div>
         <div class="region">포천·여주 (경기, 축산)</div>
         <div class="crops">산란계·계란</div>
       </div>
-      <div class="icon" title="비">🌧️</div>
+      <div class="icon" title="가을 전환">🥚</div>
     </div>
-    <div class="temp">19<span>~</span>25<span>℃</span></div>
+    <div class="temp">12<span>~</span>25<span>℃</span></div>
     <div class="badges">
-      <span class="badge amber">경기권 강우</span>
-      <span class="badge green">폭염 완화</span>
+      <span class="badge green">폭염 스트레스 해소</span>
+      <span class="badge blue">새벽 약한 비</span>
     </div>
-    <div class="note">9/1 경기·중부지방 비 소식으로 폭염 스트레스는 완화되는 국면. 다만 그간 누적된 산란율 저하 여파는 당분간 이어질 수 있어 계란 수급은 계속 모니터링.</div>
+    <div class="note">기온 하락으로 산란율 회복 추세. 다만 여름철 누적 폐사·저하분이 완전히 메워지기까진 시간 필요해, 추석 전 계란 수급은 여전히 타이트한 편.</div>
   </div>
 
 </div>
@@ -570,53 +569,53 @@
   </tr>
   <tr data-key="haenam">
     <td class="item">🥬 배추·무 (해남·고랭지)</td>
-    <td><span class="arrow up">▲</span></td>
-    <td>해남 폭염경보 지속, 강원 고랭지는 비로 전환. 산지별 상반된 리스크(폭염 vs 다습) 겹쳐 9월 초 출하 변동성 확대 → 이원화 소싱 검토.</td>
+    <td><span class="arrow down">▼</span></td>
+    <td>폭염특보 전면 해제, 가을배추·무 파종 적기 진입으로 생육 리스크 크게 완화. 계절적 출하 정상화 흐름 → 평시 발주 기조로 전환 가능.</td>
   </tr>
   <tr data-key="cheongyang">
     <td class="item">🌶️ 건고추 (청양·영양)</td>
-    <td><span class="arrow up">▲</span></td>
-    <td>영양 폭염주의보로 완화됐으나 중부권 강우와 겹쳐 고온다습 지속, 탄저병 위험은 여전히 최고 수준. 김장철 앞두고 산지 피해율 확인 후 분할 발주 권장.</td>
+    <td><span class="arrow flat">■</span></td>
+    <td>기온 하락·건조해지며 탄저병 확산세 진정, 본격 수확·건조기 진입. 다만 여름철 누적 피해율이 최종 물량에 어떻게 반영될지는 산지 확인 필요.</td>
   </tr>
   <tr data-key="wando">
     <td class="item">🐚 전복·김·미역 (완도·고흥)</td>
     <td><span class="arrow up">▲</span></td>
-    <td>완도 폭염경보 지속, 고수온 스트레스 여전히 상존. 폐사 확산 시 단기 출하량 급감 가능 → 대체 산지·냉동재고 확보 우선 검토.</td>
+    <td>고수온 특보는 해제됐으나, 여름철 폐사로 줄어든 양식 밀도가 당분간 출하량에 영향 가능. 추석 성수기 앞두고 가용 물량 여유 있게 확인 필요.</td>
   </tr>
   <tr data-key="hongseong">
     <td class="item">🐄 한우·낙농 (홍성)</td>
     <td><span class="arrow flat">■</span></td>
-    <td>9/1 강우로 폭염 스트레스는 일시 완화됐으나 인근 당진 호우 영향권이라 축사 침수 여부가 새 변수. 급격한 단가 변동보다는 상황 모니터링 단계.</td>
+    <td>기온 하락으로 폭염 스트레스 해소, 생산성 회복 국면. 여름철 저하분이 추석 성수기 수급에 남긴 여파만 계속 모니터링하면 되는 안정 단계.</td>
   </tr>
   <tr data-key="pocheon">
     <td class="item">🥚 계란 (포천·여주)</td>
     <td><span class="arrow up">▲</span></td>
-    <td>경기권 강우로 폭염 스트레스는 완화 국면이나, 그간 누적된 산란율 저하 여파는 지속. 추석 성수품이라 여전히 선제 물량 확보 우선순위 높음.</td>
+    <td>기온 하락으로 산란율 회복 추세이나 여름철 누적 폐사분이 아직 메워지지 않아 추석 전 수급은 타이트. 선제 물량 확보 우선순위 유지 권장.</td>
   </tr>
   <tr data-key="gyeongbuk">
     <td class="item">🍎 사과·감 (경북)</td>
-    <td><span class="arrow flat">■</span></td>
-    <td>경북 폭염이 경보에서 주의보로 완화. 착색기 품질 변수는 남아있으나 물량 영향은 제한적 → 등급별 분리 발주 기조 유지.</td>
+    <td><span class="arrow down">▼</span></td>
+    <td>폭염 해제 후 일교차 확대로 착색·당도 호조건, 추석 성수품 수요와 맞물려 조생종 출하 본격화. 품질은 오히려 개선 기대되는 국면.</td>
   </tr>
   <tr data-key="gyeongnam">
     <td class="item">🥒 시설채소 (경남·전남)</td>
-    <td><span class="arrow up">▲</span></td>
-    <td>경남 폭염주의보·열대야주의보 지속. 야간 고온으로 생육 불균일, 규격 이탈률 증가 여전 → 단가보다 등급 스펙 협상에 유의.</td>
+    <td><span class="arrow down">▼</span></td>
+    <td>폭염·열대야 특보 모두 해제, 시설 내 생육 불균일 리스크 크게 완화. 규격 이탈률 정상화 흐름 → 평시 발주 기조로 전환 검토.</td>
   </tr>
   <tr data-key="jeju">
     <td class="item">🍊 감귤·제주산 (월동채소 예정)</td>
-    <td><span class="arrow down">▼</span></td>
-    <td>풍랑특보는 해제, 폭염·열대야주의보만 지속. 육상·해상 모두 비교적 안정적이라 가격 판단엔 영향 미미, 평시 발주 유지.</td>
+    <td><span class="arrow flat">■</span></td>
+    <td>모든 특보 해제, 산지 소량 비만 예보. 출하 전 시즌으로 가격 판단엔 영향 없음, 평시 발주 유지.</td>
   </tr>
   <tr data-key="jeonbuk">
     <td class="item">🌾 쌀 (전북)</td>
     <td><span class="arrow flat">■</span></td>
-    <td>폭염이 경보에서 일부 주의보로 완화, 오후 소나기 예보. 등숙기 품질은 여전히 중장기 변수, 신곡 가격 반영은 아직 시점 아님.</td>
+    <td>폭염 완전 해제, 일교차 확대로 등숙·미질에 오히려 긍정적. 수확기 임박, 신곡 가격 반영은 아직 이른 시점.</td>
   </tr>
 </table>
 
 <div class="footer">
-  ※ 본 브리핑은 <span id="footerDate">2026-09-01 12:00</span> 기상청 발표자료 및 당일 언론 보도를 기반으로 재구성한 참고용 자료입니다. 실시간 특보 변경 여부는 기상청 날씨누리(weather.go.kr)에서 재확인 권장. 가격 방향성(▲▼■)은 기상 요인만을 근거로 한 정성적 판단이며 실제 산지 시세와 다를 수 있습니다.
+  ※ 본 브리핑은 <span id="footerDate">2026-09-13 05:00</span> 기상청 발표자료 및 당일 언론 보도를 기반으로 재구성한 참고용 자료입니다. 실시간 특보 변경 여부는 기상청 날씨누리(weather.go.kr)에서 재확인 권장. 가격 방향성(▲▼■)은 기상 요인만을 근거로 한 정성적 판단이며 실제 산지 시세와 다를 수 있습니다.
 </div>
 
 <div class="part-divider">
@@ -685,18 +684,18 @@
     <td class="link-cell"><a class="article-link" href="http://www.knongnews.com/news/articleView.html?idxno=24695" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
   </tr>
   <tr>
-    <td class="product">신안새우젓 외 젓갈 8종<div class="company">대일종합식품</div></td>
-    <td><span class="cat-badge cat-notice">무신고 소분</span></td>
-    <td>식품소분업 미신고 상태로 소분·판매한 사실이 확인돼 젓갈류 8개 제품 전체 판매중단·회수.</td>
-    <td>2026-05-29</td>
-    <td class="link-cell"><a class="article-link" href="https://www.hankyung.com/article/202605296469P" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
+    <td class="product">목이버섯(중국산, 수입)<div class="company">태림에스엠</div></td>
+    <td><span class="cat-badge cat-quasi">잔류농약 초과</span></td>
+    <td>잔류농약 '카벤다짐'이 기준치(0.01mg/kg)의 24배(0.24mg/kg) 검출돼 판매중단·회수. 수입량 8,350kg 규모.</td>
+    <td>확인필요</td>
+    <td class="link-cell"><a class="article-link" href="https://www.medipharmhealth.co.kr/news/article.html?no=119279" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
   </tr>
   <tr>
-    <td class="product">곱창돌김<div class="company">제이와이에프엔비</div></td>
-    <td><span class="cat-badge cat-drug">첨가물 기준 초과</span></td>
-    <td>미허용 감미료(사카린나트륨) 검출로 판매중단·회수 조치.</td>
-    <td>확인필요</td>
-    <td class="link-cell"><a class="article-link" href="https://www.foodtoday.or.kr/news/article.html?no=202130" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
+    <td class="product">본초맘죽 참치야채죽·짬뽕죽<div class="company">새싹푸드</div></td>
+    <td><span class="cat-badge cat-food">알레르기 표시</span></td>
+    <td>대두·밀·우유 등 알레르기 유발물질(최대 8종) 미표시로 즉석조리식품 2종 판매중단·회수.</td>
+    <td>소비기한 2026-09-02</td>
+    <td class="link-cell"><a class="article-link" href="https://www.etoday.co.kr/news/view/2611423" target="_blank">기사 바로가기 <span class="al-arrow">→</span></a></td>
   </tr>
   </tbody>
 </table>
